@@ -10,7 +10,20 @@ Burn the image to SD card with dd/etcher/DiskWritter or your favorite tool.
 Username: **ubuntu**  
 Password: **ubuntu**
 
-SSH is enabled by default, so you can login directly after first boot.
+SSH is enabled by default, so you can login directly after first boot. After login, you can use the following commands
+```
+sudo apt-get update
+sudo apt-get upgrade -y
+```
+If any lock files presented, please sudo remove them and 
+```
+sudo dpkg --configure -a
+```
+When everything is completed, you will need to do the following commands to enable I2C
+```
+sudo apt-get install python-pip python-pil  i2c-tools mosquitto-clients -y
+
+```
 
 ### Notes
 
