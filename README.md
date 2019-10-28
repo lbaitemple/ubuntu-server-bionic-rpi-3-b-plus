@@ -52,7 +52,7 @@ sudo systemctl enable systemd-networkd-wait-online.service
 ```
 Now, you will need to create a startup service
 ```
-sudo cp raspberry_IP/ipaddress.service /lib/systemd/system
+sudo cp ~/ubuntu-server-bionic-rpi-3-b-plus/ipaddress.service /lib/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable  ipaddress
 sudo systemctl start  ipaddress
