@@ -36,6 +36,29 @@ dtparam=spi=on
 enable_uart=1
 ```
 
+Setup everything for IP 
+```
+cd ~
+git clone https://github.com/lbaitemple/ubuntu-server-bionic-rpi-3-b-plus
+cp ubuntu-server-bionic-rpi-3-b-plus/newtest2.sh ~/test2.sh
+cp ubuntu-server-bionic-rpi-3-b-plus/stats.py ~/
+chmod +x test2.sh
+```
+
+You will need to ensure a startup service to enable network
+```
+sudo systemctl is-enabled systemd-networkd-wait-online.service
+sudo systemctl enable systemd-networkd-wait-online.service
+```
+Now, you will need to create a startup service
+```
+sudo cp raspberry_IP/ipaddress.service /lib/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable  ipaddress
+sudo systemctl start  ipaddress
+```
+
+
 ### Notes
 
 * To get wireless connection working on boot you must edit **/etc/netplan/01-rpi-3-network.yaml** present in *cloudimg-rootfs* partition in your sdcard and add your SSID and PASSWORD.
