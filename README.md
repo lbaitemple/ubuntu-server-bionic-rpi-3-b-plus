@@ -19,7 +19,10 @@ If any lock files presented, please sudo remove them and
 ```
 sudo rm /var/lib/dpkg/lock*
 sudo dpkg --configure -a
+sudo apt-get upgrade -y
 ```
+
+#### upgrade may take up to 30 mins. When a selection is requested, please use TAB key to select yes option.
 
 ### Setup I2C
 
