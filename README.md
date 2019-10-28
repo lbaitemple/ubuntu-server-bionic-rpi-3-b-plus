@@ -87,7 +87,7 @@ network:
                 access-points:
                         "L5GLB":
                                 password: "fast300a"
-                        tusecurewirless:
+                        tusecurewireless:
                                 auth:
                                    key-management: eap
                                    password: hash:[echo -n [password] | iconv -t UTF-16LE | openssl md4 ]
