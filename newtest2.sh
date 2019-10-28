@@ -2,11 +2,11 @@
 ###############
 # Please modify your cloud mqtt credential here
 ##############
-m_server ="m16.cloudmqtt.com"
-m_port = 12247
-m_user = "pspniyjc"
-m_pass = ""
-m_topic = "raspberry/ipaddress"
+m_server="m16.cloudmqtt.com"
+m_port=12247
+m_user="pspniyjc"
+m_pass="sBm4EpaDgRe5"
+m_topic="raspberry/ipaddress"
 
 ################
 # nothing needs to be changed below
