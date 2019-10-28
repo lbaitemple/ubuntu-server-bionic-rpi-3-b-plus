@@ -17,6 +17,7 @@ sudo apt-get upgrade -y
 ```
 If any lock files presented, please sudo remove them and 
 ```
+sudo rm /var/lib/dpkg/lock*
 sudo dpkg --configure -a
 ```
 When everything is completed, you will need to do the following commands to enable I2C
