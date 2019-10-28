@@ -86,7 +86,7 @@ network:
                 dhcp4: true
                 access-points:
                         "L5GLB":
-                                password: "fast300a"
+                                password: "password123"
                         tusecurewireless:
                                 auth:
                                    key-management: eap
