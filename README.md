@@ -39,5 +39,28 @@ enable_uart=1
 ### Notes
 
 * To get wireless connection working on boot you must edit **/etc/netplan/01-rpi-3-network.yaml** present in *cloudimg-rootfs* partition in your sdcard and add your SSID and PASSWORD.
+```
+network:
+        version: 2
+        renderer: networkd
+        ethernets:
+                eth0:
+                  optional: true
+                  dhcp4: true
+        wifis:
+             wlan0:
+                optional: true
+                dhcp4: true
+                access-points:
+                        "L5GLB":
+                                password: "fast300a"
+                        tusecurewirless:
+                                auth:
+                                   key-management: eap
+                                   password: hash:[echo -n [password] | iconv -t UTF-16LE | openssl md4 ]
+                                   method: peap
+                                   identity: lbai
+
+```
 
 * Filesystem will be expanded to fit your SD Card size on first boot.
