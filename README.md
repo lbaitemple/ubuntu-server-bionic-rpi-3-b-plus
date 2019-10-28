@@ -70,6 +70,7 @@ Open file
 sudo nano /etc/netplan/01-rpi-3-network.yaml
 ```
 Please include the following content and make sure you generate your password hash (see line include command 
+
  ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `echo -n [password] | iconv -t UTF-16LE | openssl md4`
  
 ```
