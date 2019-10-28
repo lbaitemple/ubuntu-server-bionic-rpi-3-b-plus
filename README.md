@@ -22,6 +22,7 @@ sudo dpkg --configure -a
 When everything is completed, you will need to do the following commands to enable I2C
 ```
 sudo apt-get install python-pip python-pil  i2c-tools mosquitto-clients -y
+sudo pip install Adafruit_SSD1306 RPi.GPIO
 ```
 
 Please change if you have i2c in configure file
