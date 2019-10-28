@@ -1,18 +1,17 @@
 #!/bin/sh
+###############
+# Please modify your cloud mqtt credential here
+##############
+m_server ="m16.cloudmqtt.com"
+m_port = 12247
+m_user = "pspniyjc"
+m_pass = ""
+m_topic = "raspberry/ipaddress"
 
-
-#say() { local IFS=+;/usr/bin/mplayer -ao alsa -really-quiet -noconsolecontrols "
-#http://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=$*&tl=en"; }
-
-
+################
+# nothing needs to be changed below
+##############
 echo "Starting script sayIPbs "
 private=`hostname -I | sed -E -e 's/[[:blank:]]+/_/g' `
-#ip=$(wget https://raw.githubusercontent.com/lbaitemple/raspberry_IP/master/ipaddress  -q -O -)
-#string="private address is $private"
-res=`mosquitto_pub -h m16.cloudmqtt.com -p 12247 -u pspniyjc -P sBm4EpaDgRe5 -t raspberry/ipaddress -m $private  > /dev/null 2>&1`
+res=`mosquitto_pub -h $m_server -p $m_port -u $m_user -P $m_pass -t $m_topic -m $private  > /dev/null 2>&1`
 test=` python /home/ubuntu/stats.py`
-#echo $string | sed 's/\./ dot /g' 
-#echo $string | sed 's/\./ dot /g' | flite -voice slt
-#say $string 
-# echo $string | flite -voice slt 
-#`flite -voice slt -t $string`
