@@ -22,7 +22,18 @@ sudo dpkg --configure -a
 When everything is completed, you will need to do the following commands to enable I2C
 ```
 sudo apt-get install python-pip python-pil  i2c-tools mosquitto-clients -y
+```
 
+Please change if you have i2c in configure file
+```
+sudo nano /boot/firmware/config.txt
+```
+
+Make sure you have (I2C, SPI and UART)
+```
+dtparam=i2c_arm=on
+dtparam=spi=on
+enable_uart=1
 ```
 
 ### Notes
