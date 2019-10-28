@@ -10,7 +10,7 @@ Burn the image to SD card with dd/etcher/DiskWritter or your favorite tool.
 Username: **ubuntu**  
 Password: **ubuntu**
 
-SSH is enabled by default, so you can login directly after first boot. After login, you can use the following commands
+SSH is enabled by default, so you can login directly after first boot. It is better to setup everything on the same network so you can ssh into the pi. After login, you can use the following commands by copying and pasting into the ssh shell
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
