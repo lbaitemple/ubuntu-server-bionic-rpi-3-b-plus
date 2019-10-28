@@ -49,6 +49,12 @@ add the following line to the file /etc/modules.
 ```
 i2c-dev
 ```
+To enable I2c permission
+```
+sudo chgrp i2c /dev/i2c-1
+sudo chmod 666 /dev/i2c-1
+sudo usermod -G i2c $USER
+```
 You will need to ensure a startup service to enable network
 ```
 sudo systemctl is-enabled systemd-networkd-wait-online.service
