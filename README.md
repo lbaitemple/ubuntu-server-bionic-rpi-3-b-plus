@@ -111,6 +111,7 @@ sudo apt-get update
 sudo apt-get install ros-melodic-desktop -y
 sudo rosdep init
 rosdep update
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 ```
 
 * Filesystem will be expanded to fit your SD Card size on first boot.
