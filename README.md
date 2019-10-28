@@ -55,32 +55,14 @@ sudo usermod -G i2c $USER
 ```
 
 
-###Setup everything for IP 
-```
-cd ~
-git clone https://github.com/lbaitemple/ubuntu-server-bionic-rpi-3-b-plus
-cp ubuntu-server-bionic-rpi-3-b-plus/newtest2.sh ~/test2.sh
-cp ubuntu-server-bionic-rpi-3-b-plus/stats.py ~/
-chmod +x test2.sh
-```
-
-You will need to ensure a startup service to enable network
-```
-sudo systemctl is-enabled systemd-networkd-wait-online.service
-sudo systemctl enable systemd-networkd-wait-online.service
-```
-Now, you will need to create a startup service
-```
-sudo cp ~/ubuntu-server-bionic-rpi-3-b-plus/ipaddress.service /lib/systemd/system
-sudo systemctl daemon-reload
-sudo systemctl enable  ipaddress
-sudo systemctl start  ipaddress
-```
-
-
-### Notes
+### Setup everything for IP 
 
 * To get wireless connection working on boot you must edit **/etc/netplan/01-rpi-3-network.yaml** present in *cloudimg-rootfs* partition in your sdcard and add your SSID and PASSWORD.
+Open file
+```
+sudo nano /etc/netplan/01-rpi-3-network.yaml
+```
+Please include the following content and make sure you generate your password hash (see line 84)
 ```
 network:
         version: 2
@@ -111,8 +93,35 @@ sudo netplan --debug generate
 sudo netplan try
 
 ```
+You may have to reboot to get IP address up. Now you can setup MQTT client in startup script file
+```
+cd ~
+git clone https://github.com/lbaitemple/ubuntu-server-bionic-rpi-3-b-plus
+cp ubuntu-server-bionic-rpi-3-b-plus/newtest2.sh ~/test2.sh
+cp ubuntu-server-bionic-rpi-3-b-plus/stats.py ~/
+chmod +x test2.sh
+```
 
-To Install ROS
+You can open test2.sh and modify cloud MQTT setting
+```
+sudo nano ~/test2.sh
+```
+
+You will need to ensure a startup service to enable network
+```
+sudo systemctl is-enabled systemd-networkd-wait-online.service
+sudo systemctl enable systemd-networkd-wait-online.service
+```
+Now, you will need to create a startup service
+```
+sudo cp ~/ubuntu-server-bionic-rpi-3-b-plus/ipaddress.service /lib/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable  ipaddress
+sudo systemctl start  ipaddress
+```
+
+
+### Install ROS
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
