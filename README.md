@@ -45,7 +45,10 @@ cp ubuntu-server-bionic-rpi-3-b-plus/newtest2.sh ~/test2.sh
 cp ubuntu-server-bionic-rpi-3-b-plus/stats.py ~/
 chmod +x test2.sh
 ```
-
+add the following line to the file /etc/modules.
+```
+i2c-dev
+```
 You will need to ensure a startup service to enable network
 ```
 sudo systemctl is-enabled systemd-networkd-wait-online.service
