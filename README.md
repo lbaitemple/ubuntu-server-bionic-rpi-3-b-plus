@@ -24,8 +24,15 @@ When everything is completed, you will need to do the following commands to enab
 sudo apt-get install python-pip python-pil  i2c-tools mosquitto-clients -y
 sudo pip install Adafruit_SSD1306 RPi.GPIO
 ```
+### set up I2C
+To enable I2c permission
+```
+sudo chgrp i2c /dev/i2c-1
+sudo chmod 666 /dev/i2c-1
+sudo usermod -G i2c $USER
+```
 
-Please change if you have i2c in configure file
+If you do not see the file /dev/i2c-1. Please add i2c in configure file
 ```
 sudo nano /boot/firmware/config.txt
 ```
@@ -35,15 +42,6 @@ Make sure you have (I2C, SPI and UART)
 dtparam=i2c_arm=on
 dtparam=spi=on
 enable_uart=1
-```
-
-Setup everything for IP 
-```
-cd ~
-git clone https://github.com/lbaitemple/ubuntu-server-bionic-rpi-3-b-plus
-cp ubuntu-server-bionic-rpi-3-b-plus/newtest2.sh ~/test2.sh
-cp ubuntu-server-bionic-rpi-3-b-plus/stats.py ~/
-chmod +x test2.sh
 ```
 add the following line to the file /etc/modules.
 ```
@@ -55,6 +53,17 @@ sudo chgrp i2c /dev/i2c-1
 sudo chmod 666 /dev/i2c-1
 sudo usermod -G i2c $USER
 ```
+
+
+###Setup everything for IP 
+```
+cd ~
+git clone https://github.com/lbaitemple/ubuntu-server-bionic-rpi-3-b-plus
+cp ubuntu-server-bionic-rpi-3-b-plus/newtest2.sh ~/test2.sh
+cp ubuntu-server-bionic-rpi-3-b-plus/stats.py ~/
+chmod +x test2.sh
+```
+
 You will need to ensure a startup service to enable network
 ```
 sudo systemctl is-enabled systemd-networkd-wait-online.service
