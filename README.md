@@ -96,4 +96,11 @@ network:
 
 ```
 
+To apply netplan
+```
+sudo netplan --debug generate
+sudo netplan try
+
+```
+
 * Filesystem will be expanded to fit your SD Card size on first boot.
