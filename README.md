@@ -4,28 +4,30 @@ https://github.com/AbelCS/ubuntu-server-bionic-rpi-3-b-plus/releases
 
 
 ## Instructions
-### step 1: Upgrade System
+### step 1: Upgrade System 
 Burn the image to SD card with dd/etcher/DiskWritter or your favorite tool.
 
 Username: **ubuntu**  
 Password: **ubuntu**
 
-SSH is enabled by default, so you can login directly after first boot. It is better to setup everything on the same network so you can ssh into the pi. After login, you can use the following commands by copying and pasting into the ssh shell
+SSH is enabled by default, so you can login directly after first boot. However, it is recommended to use a HDMI screen to upgrade the system first. 
+
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
 ```
+
 If any lock files presented, please sudo remove them and 
 ```
 sudo rm /var/lib/dpkg/lock*
 sudo dpkg --configure -a
 sudo apt-get upgrade -y
 ```
-
 #### upgrade may take up to 30 mins. When a selection is requested, please use TAB key to select yes option.
 
 ### step 2: Setup I2C
-
+After the system is upgraded in step 1, you can ssh to the raspberry pi in step 2 when your computer and your pi are on the same LAN. 
+After login, you can use the following commands by copying and pasting into the ssh shell
 When everything is completed, you will need to do the following commands to enable I2C
 ```
 sudo apt-get install python-pip python-pil  i2c-tools mosquitto-clients -y
