@@ -134,6 +134,19 @@ sudo systemctl enable  ipaddress
 sudo systemctl start  ipaddress
 ```
 You can setup a MQTT subscriber to wait the ip address is published to the MQTT topic. Also, you should be able to see the IP address on OLED screen if you connect your I2C OLED screen (https://esphome.io/components/display/ssd1306.html) to your Pi.
+
+#### optional step 3a: display ip address without login (with a monitor)
+open a file 
+
+```
+sudo nano /etc/issue
+```
+add two lines in the bottom of the file
+```
+eth0: \4{eth0}
+wlan0: \4{wlan0}
+```
+
 ### step 4: Increase swap memory
 When you compile files, you may need a larger swap memory becasue raspberry pi 3 has only 1GB memory.
 
