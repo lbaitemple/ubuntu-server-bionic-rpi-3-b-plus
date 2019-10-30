@@ -116,7 +116,7 @@ cp ubuntu-server-bionic-rpi-3-b-plus/stats.py ~/
 chmod +x test2.sh
 ```
 
-You can open test2.sh and modify cloud MQTT setting
+You can open test2.sh and modify cloud MQTT setting. If you do not have a cloud MQTT account, please go to https://www.cloudmqtt.com/ to setup one free account. 
 ```
 sudo nano ~/test2.sh
 ```
@@ -133,7 +133,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable  ipaddress
 sudo systemctl start  ipaddress
 ```
-
+You can setup a MQTT subscriber to wait the ip address is published to the MQTT topic. Also, you should be able to see the IP address on OLED screen if you connect your I2C OLED screen (https://esphome.io/components/display/ssd1306.html) to your Pi.
 ### step 4: Increase swap memory
 When you compile files, you may need a larger swap memory becasue raspberry pi 3 has only 1GB memory.
 
