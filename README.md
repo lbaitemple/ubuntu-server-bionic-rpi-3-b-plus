@@ -3,8 +3,8 @@
 https://github.com/AbelCS/ubuntu-server-bionic-rpi-3-b-plus/releases
 
 
-### Instructions
-
+## Instructions
+### step 1: Upgrade System
 Burn the image to SD card with dd/etcher/DiskWritter or your favorite tool.
 
 Username: **ubuntu**  
@@ -24,7 +24,7 @@ sudo apt-get upgrade -y
 
 #### upgrade may take up to 30 mins. When a selection is requested, please use TAB key to select yes option.
 
-### Setup I2C
+### step 2: Setup I2C
 
 When everything is completed, you will need to do the following commands to enable I2C
 ```
@@ -38,6 +38,8 @@ sudo chgrp i2c /dev/i2c-1
 sudo chmod 666 /dev/i2c-1
 sudo usermod -G i2c $USER
 ```
+
+If everything wents through successfully, please got to step 3.
 
 If you do not see the file /dev/i2c-1. Please add i2c in configure file
 ```
@@ -62,7 +64,7 @@ sudo usermod -G i2c $USER
 ```
 
 
-### Setup everything for IP 
+### step 3: Setup everything for IP 
 
 * To get wireless connection working on boot you must edit **/etc/netplan/01-rpi-3-network.yaml** present in *cloudimg-rootfs* partition in your sdcard and add your SSID and PASSWORD.
 Open file
@@ -91,7 +93,7 @@ network:
                         tusecurewireless:
                                 auth:
                                    key-management: eap
-                                   password: hash:[echo -n [password] | iconv -t UTF-16LE | openssl md4 ]
+                                   password: hash:[insert hash value]
                                    method: peap
                                    identity: lbai
 
@@ -130,8 +132,28 @@ sudo systemctl enable  ipaddress
 sudo systemctl start  ipaddress
 ```
 
+### step 4: Increase swap memory
+When you compile files, you may need a larger swap memory becasue raspberry pi 3 has only 1GB memory.
 
-### Install ROS
+Enter the command as follows to setup 4G swap space
+```
+sudo dd if=/dev/zero of=/swap1 bs=1M count=4096
+sudo mkswap /swap1
+sudo swapon /swap1
+```
+take around 5 mins to create 4G swap space. If you need to include the swap space during every bootup, you can open a file
+```
+sudo nano /etc/fstab
+```
+Add a line to the bottom of the file
+```
+/swap1 swap swap
+```
+close and save the file. You can check if there is a swap memory by typing
+```
+free -th
+```
+### step 5: Install ROS
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
