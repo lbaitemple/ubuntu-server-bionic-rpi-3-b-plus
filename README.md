@@ -27,6 +27,8 @@ sudo apt-get upgrade -y
 
 ### step 2: Setup I2C
 After the system is upgraded in step 1, you can ssh to the raspberry pi in step 2 when your computer and your pi are on the same LAN. 
+
+
 After login, you can use the following commands by copying and pasting into the ssh shell
 When everything is completed, you will need to do the following commands to enable I2C
 ```
@@ -41,7 +43,7 @@ sudo chmod 666 /dev/i2c-1
 sudo usermod -G i2c $USER
 ```
 
-If everything wents through successfully, please got to step 3.
+If everything wents through successfully, please go to step 3.
 
 If you do not see the file /dev/i2c-1. Please add i2c in configure file
 ```
