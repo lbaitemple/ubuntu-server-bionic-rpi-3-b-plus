@@ -120,7 +120,7 @@ chmod +x test2.sh
 
 You can open test2.sh and modify cloud MQTT setting. If you do not have a cloud MQTT account, please go to https://www.cloudmqtt.com/ to setup one free account. 
 ```
-sudo nano ~/test2.sh
+nano ~/test2.sh
 ```
 
 You will need to ensure a startup service to enable network
