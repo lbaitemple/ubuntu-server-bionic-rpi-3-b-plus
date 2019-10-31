@@ -170,7 +170,7 @@ close and save the file. You can check if there is a swap memory by typing
 ```
 free -th
 ```
-### step 5: Install ROS
+### step 5: Install ROS [you can skip this step to step 6 if you want to have python 3 supported ROS]
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
@@ -179,6 +179,19 @@ sudo apt-get install ros-melodic-desktop -y
 sudo rosdep init
 rosdep update
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+```
+
+### step 6: ROS Melodic with Python 3 support [test phase, not sure if it is good yet. try it at your own risk to install everything.]
+reference at [https://www.miguelalonsojr.com/blog/robotics/ros/python3/2019/08/20/ros-melodic-python-3-build.html]
+```
+sudo apt-get remove python-*
+sudo apt-get remove ros-melodic-*
+sudo apt install -y python3 python3-dev python3-pip build-essential
+sudo -H pip3 install rosdep rospkg rosinstall_generator rosinstall wstool vcstools catkin_tools catkin_pkg
+sudo rosdep init
+rosdep update
+mkdir -p ~/ros_catkin_ws/src
+cd ~/ros_catkin_ws/
 ```
 
 * Filesystem will be expanded to fit your SD Card size on first boot.
