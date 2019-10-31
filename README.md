@@ -183,6 +183,9 @@ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
 ### step 6: ROS Melodic with Python 3 support [test phase, not sure if it is good yet. try it at your own risk to install everything.]
 reference at [https://www.miguelalonsojr.com/blog/robotics/ros/python3/2019/08/20/ros-melodic-python-3-build.html]
+
+commands are not done. still under testing. 
+
 ```
 sudo apt-get remove python-*
 sudo apt-get remove ros-melodic-*
