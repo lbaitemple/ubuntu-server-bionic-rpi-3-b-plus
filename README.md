@@ -10,6 +10,11 @@ Burn the image to SD card with dd/etcher/DiskWritter or your favorite tool.
 Username: **ubuntu**  
 Password: **ubuntu**
 
+Check your system architecture, you can use
+```
+ uname -m
+```
+
 SSH is enabled by default, so you can login directly after first boot. However, it is recommended to connect to ethernet and use a HDMI screen to upgrade the system first. 
 
 ```
