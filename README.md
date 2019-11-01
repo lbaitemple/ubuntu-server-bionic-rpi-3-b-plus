@@ -249,7 +249,7 @@ Build the code in the workspace
 cd ~/ros2_dashing/
 colcon build --symlink-install
 ````
-##### take really long 2-3 hours. Take a break and get a cup of coffee.
+##### take really long 6-7 hours. Take a break and get a cup of coffee.
 
 ```
 colcon build --symlink-install --merge-install
