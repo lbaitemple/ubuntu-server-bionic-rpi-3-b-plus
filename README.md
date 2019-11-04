@@ -187,7 +187,7 @@ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 ```
 
 ### step 6: Install ROS2  [make sure you have a 32-bit image installed. Not completely tested it]
-https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Development-Setup/
+https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/#install-ros-2-packages
 
 
 ```
