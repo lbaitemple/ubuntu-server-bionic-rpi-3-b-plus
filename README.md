@@ -204,58 +204,15 @@ sudo sh -c 'echo "deb [arch=armhf] http://packages.ros.org/ros2/ubuntu `lsb_rele
 
 ```
 sudo apt update
-sudo apt install -y \
-  build-essential \
-  cmake \
-  git \
-  python3-colcon-common-extensions \
-  python3-pip \
-  python-rosdep \
-  python3-vcstool \
-  wget
-python3 -m pip install -U \
-  argcomplete \
-  flake8 \
-  flake8-blind-except \
-  flake8-builtins \
-  flake8-class-newline \
-  flake8-comprehensions \
-  flake8-deprecated \
-  flake8-docstrings \
-  flake8-import-order \
-  flake8-quotes \
-  pytest-repeat \
-  pytest-rerunfailures \
-  pytest \
-  pytest-cov \
-  pytest-runner \
-  setuptools
-sudo apt install --no-install-recommends -y \
-  libasio-dev \
-  libtinyxml2-dev
-sudo apt install --no-install-recommends -y \
-  libcunit1-dev  
-```
-Get ROS2 Code
-```
-mkdir -p ~/ros2_dashing/src
-cd ~/ros2_dashing
-wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
-vcs import src < ros2.repos
-```
-Install dependencies using rosdep
-```
-sudo rosdep init
-rosdep update
-rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+sudo apt install ros-dashing-desktop -y
+sudo apt install python3-argcomplete
 ```
 
 Build the code in the workspace
 ```
-cd ~/ros2_dashing/
-colcon build --symlink-install
+source /opt/ros/dashing/setup.bash
+echo "source /opt/ros/dashing/setup.bash" >> ~/.bashrc
 ````
-##### take really long 6-7 hours. Take a break and get a cup of coffee.
 
 
 Try some examples
